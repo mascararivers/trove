@@ -28,7 +28,9 @@ pub async fn retrieve_player_data(player_id: String, api_key: String, http_clien
 
     let text = response.text().await?;
 
+    println!("{:#?}", text);
+
     let data: Data = serde_json::from_str::<Data>(&text)?;
-    
+
     Ok(data)
 }
