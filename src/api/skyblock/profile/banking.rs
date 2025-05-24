@@ -1,3 +1,4 @@
+use serde::Deserialize;
 
 #[derive(Deserialize, Debug)]
 struct BankTransaction {
@@ -8,7 +9,7 @@ struct BankTransaction {
 }
 
 #[derive(Deserialize, Debug)]
-struct Banking {
+pub struct Banking {
     balance: usize,
-    transactions: Vec<BankTransaction>, 
+    transactions: Vec<BankTransaction>,
 }

@@ -1,4 +1,8 @@
-
+use banking::Banking;
+use coop::Member;
+use serde::Deserialize;
+mod banking;
+mod coop;
 
 #[derive(Deserialize, Debug)]
 struct Timestamp {

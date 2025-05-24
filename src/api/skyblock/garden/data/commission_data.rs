@@ -1,3 +1,4 @@
+use serde::Deserialize;
 
 #[derive(Deserialize, Debug)]
 struct Visits {
@@ -14,7 +15,7 @@ struct Completed {
 }
 
 #[derive(Deserialize, Debug)]
-struct CommissionData {
+pub struct CommissionData {
     visits: Visits,
     completed: Completed,
     total_completed: usize,

@@ -1,3 +1,5 @@
+use super::Timestamp;
+use serde::Deserialize;
 
 #[derive(Deserialize, Debug)]
 struct SubProfile {
@@ -5,7 +7,7 @@ struct SubProfile {
 }
 
 #[derive(Deserialize, Debug)]
-struct Member {
+pub struct Member {
     player_id: String,
     profile: Vec<SubProfile>,
 }

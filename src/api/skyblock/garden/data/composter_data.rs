@@ -1,3 +1,4 @@
+use serde::Deserialize;
 
 #[derive(Debug, Deserialize)]
 struct Upgrades {
@@ -9,12 +10,12 @@ struct Upgrades {
 }
 
 #[derive(Debug, Deserialize)]
-struct ComposterData {
+pub struct ComposterData {
     organic_matter: usize,
     fuel_units: usize,
     compost_units: usize,
     compost_items: usize,
     conversion_ticks: usize,
     last_save: usize,
-    upgrades: Vec<Upgrades>,  
+    upgrades: Vec<Upgrades>,
 }

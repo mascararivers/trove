@@ -1,4 +1,4 @@
-
+use serde::Deserialize;
 
 #[derive(Deserialize, Debug)]
 struct Item {
@@ -11,9 +11,7 @@ struct Item {
 }
 
 #[derive(Deserialize, Debug)]
-struct Special {
-
-}
+struct Special {}
 
 #[derive(Deserialize, Debug)]
 struct Profile {
@@ -23,7 +21,7 @@ struct Profile {
     special: Vec<Special>,
 }
 
-#[derive(Debug, Desesrialize)]
+#[derive(Debug, Deserialize)]
 struct Response {
     success: bool,
     profile: Profile,
