@@ -13,3 +13,8 @@ pub struct Banking {
     balance: usize,
     transactions: Vec<BankTransaction>,
 }
+
+#[derive(Deserialize, Debug)]
+pub struct Currencies {
+    coin_purse: usize
+}

@@ -1,6 +1,6 @@
 use data::{commission_data::CommissionData, composter_data::ComposterData};
 use serde::Deserialize;
-mod data;
+pub mod data;
 
 #[derive(Deserialize, Debug)]
 struct Garden {
