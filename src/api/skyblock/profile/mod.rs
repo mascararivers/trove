@@ -10,9 +10,17 @@ struct Timestamp {
 }
 
 #[derive(Deserialize, Debug)]
+struct UpgradeState {
+    upgrade: String,
+    tier: usize,
+    started_by: String,
+    claimed_by: Option<String>,
+}
+
+#[derive(Deserialize, Debug)]
 struct CommunityUpgrades {
-    upgrade_id: String,
-    level: usize,
+    currently_upgrading: Option<bool>,
+    upgrade_states: Vec<UpgradeState>,
 }
 
 #[derive(Deserialize, Debug)]

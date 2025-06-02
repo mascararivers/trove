@@ -94,8 +94,17 @@ pub struct DungeonType {
 }
 
 #[derive(Debug, Deserialize)]
-pub struct PlayerClass {
+pub struct SubPlayerClass {
     experience: usize,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct PlayerClass {
+    healer: SubPlayerClass,
+    mage: SubPlayerClass,
+    berserk: SubPlayerClass,
+    archer: SubPlayerClass,
+    tank: SubPlayerClass,
 }
 
 #[derive(Debug, Deserialize)]

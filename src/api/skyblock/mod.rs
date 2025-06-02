@@ -4,3 +4,4 @@ pub mod museum;
 pub mod profile;
 pub mod mining;
 pub mod dungeons;
+pub mod rift;
