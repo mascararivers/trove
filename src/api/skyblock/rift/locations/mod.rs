@@ -1,3 +1,11 @@
 pub mod villageplaza;
 pub mod withercage;
 pub mod blacklagoon;
+pub mod deadcats;
+pub mod wizardtower;
+pub mod gallery;
+pub mod westvillage;
+pub mod wyldwoods;
+pub mod castle;
+pub mod access;
+pub mod dreadfarm;
