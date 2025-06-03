@@ -1,12 +1,11 @@
 use serde::Deserialize;
 
-
 #[derive(Deserialize, Debug)]
 pub struct Trophy {
     #[serde(rename = "type")]
     trophy_type: String,
     timestamp: usize,
-    visits: usize
+    visits: usize,
 }
 
 #[derive(Deserialize, Debug)]

@@ -21,7 +21,7 @@ pub struct Montezuma {
 pub struct DeadCats {
     talked_to_jacquelle: bool,
     picked_up_detector: bool,
-    found_cats: Vec<String>,   
+    found_cats: Vec<String>,
     unlocked_pet: bool,
     montezuma: Montezuma,
 }

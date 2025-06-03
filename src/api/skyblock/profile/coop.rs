@@ -1,8 +1,12 @@
-use serde::{Deserialize};
-use crate::api::skyblock::{dungeons::Dungeons, garden::data::jacobs_contest::{self, JacobsContest}};
-use super::{banking::Currencies, Timestamp};
+use super::{Timestamp, banking::Currencies};
+use crate::api::skyblock::{
+    dungeons::Dungeons,
+    garden::data::jacobs_contest::{self, JacobsContest},
+    mining::GlacitePlayerData,
+};
+use serde::{Deserialize, de};
 
-#[derive(Deserialize, Debug)]  
+#[derive(Deserialize, Debug)]
 struct Perk {
     catacombs_boss_luck: usize,
     catacombs_looting: usize,
@@ -13,18 +17,29 @@ struct Perk {
 struct PotionEffect;
 
 #[derive(Deserialize, Debug)]
+struct SkillExperience {
+    skill: String,
+    experience: usize,
+}
+
+#[derive(Deserialize, Debug)]
 struct PlayerData {
     visited_zones: Vec<String>,
     last_death: Option<Timestamp>,
     perks: Vec<Perk>,
     active_effects: Vec<PotionEffect>,
-    paused_efffects: Vec<PotionEffect>,
+    paused_effects: Vec<PotionEffect>,
+    reaper_peppers_eaten: Option<usize>,
+    temp_stat_buffs: Vec<String>,
     death_count: usize,
-    disabled_potion_effects: Vec<PotionEffect>,
+    disabled_potion_effects: Vec<String>,
+    achievement_spawned_island_types: Vec<String>,
     visited_modes: Vec<String>,
     unlocked_coll_tiers: Vec<String>,
     crafted_generators: Vec<String>,
     fishing_treasure_caught: usize,
+    experience: Vec<SkillExperience>,
+    glacite_player_data: GlacitePlayerData,
     jacobs_contest: JacobsContest,
     currencies: Vec<Currencies>,
     dungeons: Dungeons,

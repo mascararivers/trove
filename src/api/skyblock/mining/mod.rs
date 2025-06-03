@@ -1,6 +1,5 @@
 use serde::Deserialize;
 
-
 #[derive(Deserialize, Debug)]
 pub struct JadeCrystal {
     state: Option<String>,
@@ -34,11 +33,11 @@ pub struct TopazCrystal {
 
 #[derive(Deserialize, Debug)]
 pub struct Crystals {
-    jade_crystal: Option<JadeCrystal>, 
-    amber_crystal: Option<AmberCrystal>, 
-    amethyst_crystal: Option<AmethystCrystal>, 
-    sapphire_crystal: Option<SapphireCrystal>,  
-    topaz_crystal: Option<TopazCrystal>, 
+    jade_crystal: Option<JadeCrystal>,
+    amber_crystal: Option<AmberCrystal>,
+    amethyst_crystal: Option<AmethystCrystal>,
+    sapphire_crystal: Option<SapphireCrystal>,
+    topaz_crystal: Option<TopazCrystal>,
 }
 
 #[derive(Deserialize, Debug)]
@@ -61,7 +60,6 @@ struct Goblin {
 #[derive(Deserialize, Debug)]
 struct Biomes {
     dwarven: Option<Dwarven>,
-
 }
 
 #[derive(Deserialize, Debug)]
@@ -75,4 +73,20 @@ struct MiningCore {
     greater_mines_last_access: usize,
     hotm_migrator_tree_reset_send_message: bool,
     crystals: Vec<Crystals>,
+}
+
+#[derive(Deserialize, Debug)]
+pub struct CorpseStats {
+    lapis: usize,
+    vanguard: usize,
+    tungsten: usize,
+    umber: usize,
+}
+
+#[derive(Deserialize, Debug)]
+pub struct GlacitePlayerData {
+    fossils_donated: Vec<String>,
+    fossil_dust: usize,
+    corpses_looted: CorpseStats,
+    mineshafts_entered: usize,
 }

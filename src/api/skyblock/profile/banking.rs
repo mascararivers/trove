@@ -16,5 +16,5 @@ pub struct Banking {
 
 #[derive(Deserialize, Debug)]
 pub struct Currencies {
-    coin_purse: usize
+    coin_purse: usize,
 }

@@ -1,4 +1,4 @@
-use serde::{Deserialize};
+use serde::Deserialize;
 
 #[derive(Debug, Deserialize)]
 pub struct Murder {
@@ -7,7 +7,6 @@ pub struct Murder {
     step_index_pt2: usize,
     step_index_pt3: usize,
 }
-
 
 #[derive(Debug, Deserialize)]
 pub struct BarryCenter {
@@ -29,12 +28,12 @@ pub struct BarterBank;
 
 #[derive(Debug, Deserialize)]
 pub struct Lonely {
-    seconds_sitting: usize
+    seconds_sitting: usize,
 }
 
 #[derive(Debug, Deserialize)]
 pub struct Seraphine {
-    step_index: usize
+    step_index: usize,
 }
 
 #[derive(Debug, Deserialize)]

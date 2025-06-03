@@ -1,5 +1,4 @@
-use serde::{de, Deserialize};
-
+use serde::{Deserialize, de};
 
 #[derive(Debug, Deserialize)]
 pub struct DungeonFloors {
@@ -83,14 +82,12 @@ pub struct Catacombs {
 }
 
 #[derive(Debug, Deserialize)]
-pub struct MasterCatacombs {
-
-}
+pub struct MasterCatacombs {}
 
 #[derive(Debug, Deserialize)]
 pub struct DungeonType {
     catacombs: Catacombs,
-    master_catacombs: MasterCatacombs
+    master_catacombs: MasterCatacombs,
 }
 
 #[derive(Debug, Deserialize)]
@@ -114,7 +111,7 @@ pub struct DungeonJournalEntries {
 
 #[derive(Debug, Deserialize)]
 pub struct DungeonJournal {
-    journal_entries: Vec<DungeonJournalEntries>, 
+    journal_entries: Vec<DungeonJournalEntries>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -130,5 +127,5 @@ pub struct Dungeons {
     dungeon_journal: DungeonJournal,
     dungeons_blah_blah: Vec<String>, // Yes, this is what its called in the API
     selected_dungeon_class: String,
-    daily_runs: DailyRuns
+    daily_runs: DailyRuns,
 }

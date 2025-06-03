@@ -1,12 +1,11 @@
-use serde::{de, Deserialize};
-
+use serde::{Deserialize, de};
 
 #[derive(Deserialize, Debug)]
 pub struct CrazyKloon {
     selected_colors: Vec<String>,
     talked: bool,
     hacked_terminals: Vec<String>,
-    quest_complete: bool
+    quest_complete: bool,
 }
 
 #[derive(Debug, Deserialize)]
@@ -31,7 +30,7 @@ pub struct Glyph {
     current_glyph_completed: bool,
     current_glyph: usize,
     completed: bool,
-    claimed_bracelet: bool
+    claimed_bracelet: bool,
 }
 
 #[derive(Deserialize, Debug)]

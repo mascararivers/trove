@@ -11,7 +11,7 @@ pub struct Contest {
 #[derive(Debug, Deserialize)]
 pub struct Medal {
     bronze: usize,
-    silver: usize, 
+    silver: usize,
     gold: usize,
 }
 

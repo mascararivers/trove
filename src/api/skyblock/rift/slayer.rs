@@ -1,6 +1,5 @@
 use serde::Deserialize;
 
-
 #[derive(Deserialize, Debug)]
 pub struct SlayerQuest {
     #[serde(rename = "type")]
