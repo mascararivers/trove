@@ -1,8 +1,8 @@
 use super::{Timestamp, banking::Currencies};
 use crate::api::skyblock::{
     dungeons::Dungeons,
-    garden::data::jacobs_contest::{self, JacobsContest},
-    mining::GlacitePlayerData,
+    garden::{data::jacobs_contest::{self, JacobsContest}, GardenPlayerData},
+    mining::GlacitePlayerData, misc::{events::Events, pets::PetData},
 };
 use serde::{Deserialize, de};
 
@@ -43,6 +43,9 @@ struct PlayerData {
     jacobs_contest: JacobsContest,
     currencies: Vec<Currencies>,
     dungeons: Dungeons,
+    events: Events,
+    garden_player_data: GardenPlayerData,
+    pet_data: PetData,
 }
 
 #[derive(Deserialize, Debug)]

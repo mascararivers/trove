@@ -3,14 +3,20 @@ use serde::Deserialize;
 pub mod data;
 
 #[derive(Deserialize, Debug)]
-struct Garden {
+pub struct Garden {
     uuid: String,
     commission_data: CommissionData,
     composter_data: ComposterData,
 }
 
 #[derive(Deserialize, Debug)]
-struct Response {
+pub struct Response {
     success: bool,
     garden: Garden,
+}
+
+#[derive(Deserialize, Debug)]
+pub struct GardenPlayerData {
+    copper: usize,
+    larva_consumed: usize,
 }
