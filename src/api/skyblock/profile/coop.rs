@@ -2,13 +2,16 @@ use super::{Timestamp, banking::Currencies};
 use crate::api::skyblock::{
     dungeons::Dungeons,
     garden::{data::jacobs_contest::{self, JacobsContest}, GardenPlayerData},
-    mining::GlacitePlayerData, misc::{events::Events, pets::PetData},
+    mining::GlacitePlayerData, misc::{accessories::AccessoryBagStorage, events::Events, pets::PetData}, rift::Rift,
 };
 use serde::{Deserialize, de};
 
 #[derive(Deserialize, Debug)]
 struct Perk {
     catacombs_boss_luck: usize,
+    catacombs_intelligence: usize,
+    forbidden_blessing: usize,
+    
     catacombs_looting: usize,
     catacombs_strength: usize,
 }
@@ -46,6 +49,7 @@ struct PlayerData {
     events: Events,
     garden_player_data: GardenPlayerData,
     pet_data: PetData,
+    accessory_bag_storage: AccessoryBagStorage,
 }
 
 #[derive(Deserialize, Debug)]
@@ -53,6 +57,7 @@ struct SubProfileData {
     timestamp: Timestamp,
     invited_by: String,
     confirmed: bool,
+    rift: Rift,
     player_data: Option<PlayerData>,
 }
 
