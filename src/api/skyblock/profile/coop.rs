@@ -2,7 +2,7 @@ use super::{Timestamp, banking::Currencies};
 use crate::api::skyblock::{
     dungeons::Dungeons,
     garden::{data::jacobs_contest::{self, JacobsContest}, GardenPlayerData},
-    mining::GlacitePlayerData, misc::{accessories::AccessoryBagStorage, events::Events, pets::PetData}, rift::Rift,
+    mining::GlacitePlayerData, misc::{accessories::AccessoryBagStorage, events::Events, leveling::Leveling, pets::PetData}, rift::Rift,
 };
 use serde::{Deserialize, de};
 
@@ -23,6 +23,12 @@ struct PotionEffect;
 struct SkillExperience {
     skill: String,
     experience: usize,
+}
+
+#[derive(Deserialize, Debug)]
+struct ItemData {
+    soulflow: usize,
+    teleporter_pill_consumed: bool,
 }
 
 #[derive(Deserialize, Debug)]
@@ -50,6 +56,8 @@ struct PlayerData {
     garden_player_data: GardenPlayerData,
     pet_data: PetData,
     accessory_bag_storage: AccessoryBagStorage,
+    leveling: Leveling,
+    item_data: ItemData,
 }
 
 #[derive(Deserialize, Debug)]
