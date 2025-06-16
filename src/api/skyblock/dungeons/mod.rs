@@ -1,5 +1,7 @@
 use serde::{Deserialize, de};
 
+use crate::api::skyblock::rift::locations::dreadfarm;
+
 #[derive(Debug, Deserialize)]
 pub struct DungeonFloors {
     #[serde(rename = "0")]
@@ -18,6 +20,8 @@ pub struct DungeonFloors {
     floor_6: usize,
     #[serde(rename = "7")]
     floor_7: usize,
+    total: Option<usize>, // apparently some requests dont return a total for whatever reason because fuck you that's why
+    best: Option<usize> // pb
 }
 
 #[derive(Debug, Deserialize)]
@@ -62,7 +66,7 @@ pub struct BestRun {
 pub struct Catacombs {
     times_played: DungeonFloors,
     experience: usize,
-    best_score: DungeonFloors, // Duping structs because im not making another oneA
+    best_score: DungeonFloors, // Duping structs because im not making another one
     mobs_killed: DungeonFloors,
     most_mobs_killed: DungeonFloors,
     most_healing: DungeonFloors,
@@ -82,7 +86,26 @@ pub struct Catacombs {
 }
 
 #[derive(Debug, Deserialize)]
-pub struct MasterCatacombs {}
+pub struct MasterCatacombs {
+    tier_completions: DungeonFloors,
+    milestone_completions: DungeonFloors,
+    highest_tier_completed: usize,
+    fastest_time: DungeonFloors,
+    fastest_time_s_plus: DungeonFloors,
+    best_runs: Vec<BestRun>,
+    best_score: DungeonFloors,
+    mobs_killed: DungeonFloors,
+    most_mobs_killed: DungeonFloors,
+    most_damage_mage: DungeonFloors,
+    most_healing: DungeonFloors,
+    fastest_time_s: DungeonFloors,
+    most_damage_tank: DungeonFloors,
+    most_damage_healer: DungeonFloors,
+    most_damage_archer: DungeonFloors,
+    most_damage_berserk: DungeonFloors,
+    times_played: Option<DungeonFloors>, // Request returned this as {} dunno why
+    watcher_kills: Option<DungeonFloors>, // Same as above
+}
 
 #[derive(Debug, Deserialize)]
 pub struct DungeonType {
@@ -120,6 +143,53 @@ pub struct DailyRuns {
     completed_runs_count: usize,
 }
 
+#[derive(Debug, Deserialize)]
+pub struct TreasuresParticipant {
+    player_uuid: String,
+    display_name: String,
+    class_milestone: usize,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct TreasuresRun {
+    run_id: String,
+    completion_ts: usize, // I don't know why they couldn't have called this completion_timestamp
+    dungeon_type: String,
+    dungeon_tier: usize,
+    participants: Vec<TreasuresParticipant>,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct ChestRewards {
+    rewards: Vec<String>, // Why the fuck is this even necessary why nest this shit im gonna kill myself
+    rolled_rng_meter_randomly: bool, // ???
+}
+
+#[derive(Debug, Deserialize)]
+pub struct Chest {
+    run_id: String,
+    chest_id: String,
+    treasure_type: String,
+    rewards: ChestRewards,
+    quality: usize,
+    shiny_eligible: bool,
+    paid: bool,
+    rerolls: usize // should just be rerolled: bool because you cant reroll more than once but fuck logic
+}
+
+#[derive(Debug, Deserialize)]
+pub struct Treasures {
+    runs: Vec<TreasuresRun>,
+    chests: Vec<Chest>,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct RaceSettings {
+    selected_race: String,
+    selected_setting: String,
+    runback: bool
+}
+
 #[derive(Deserialize, Debug)]
 pub struct Dungeons {
     dungeon_types: Vec<DungeonType>,
@@ -128,4 +198,8 @@ pub struct Dungeons {
     dungeons_blah_blah: Vec<String>, // Yes, this is what its called in the API
     selected_dungeon_class: String,
     daily_runs: DailyRuns,
+    treasures: Treasures,
+    dungeon_hub_race_settings: RaceSettings,
+    secrets: usize,
+    last_dungeon_run: String
 }
