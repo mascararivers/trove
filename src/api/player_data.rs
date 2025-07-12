@@ -1,5 +1,11 @@
-use crate::errors::Result;
+use crate::{api::duels::data::Duels, errors::Result};
 use serde::Deserialize;
+
+#[derive(Default, Deserialize, Debug)]
+pub struct Stats {
+    #[serde(rename = "Duels")]
+    pub duels: Duels,
+}
 
 #[derive(Default, Deserialize, Debug)]
 pub struct Player {
@@ -18,6 +24,7 @@ pub struct Player {
     pub last_login: i64,
     #[serde(rename = "lastLogout")]
     pub last_logout: i64,
+    pub stats: Stats,
 }
 
 #[derive(Default, Deserialize, Debug)]
