@@ -29,8 +29,8 @@ pub struct Player {
 
 #[derive(Default, Deserialize, Debug)]
 pub struct Data {
-    success: bool,
-    player: Player,
+    pub success: bool,
+    pub player: Player,
 }
 
 pub const API_URL: &str = "https://api.hypixel.net/v2/";
